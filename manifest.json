@@ -4,19 +4,19 @@
     "manifest_version": 2,
     "description": "Auto fill each form field within the page with one click.",
     "icons": {
-        "16": "icon-16.png",
-        "48": "icon-48.png",
-        "128": "icon-128.png"
+        "16": "assets/images/icon-16.png",
+        "48": "assets/images/icon-48.png",
+        "128": "assets/images/icon-128.png"
     },
     "permissions": ["tabs", "http://*/*", "https://*/*"],
     "browser_action": {
-        "default_icon": "icon-48.png",
+        "default_icon": "assets/images/icon-48.png",
         "default_title": "Fill all inputs"
     },
     "content_scripts": [
         {
             "all_frames": true,
-            "js": ["assets/js/jquery.js", "assets/js/keymaster.js", "assets/js/content.js"],
+            "js": ["assets/js/jquery.js", "assets/js/keymaster.js"/*, "assets/js/content.js"*/],
             "matches": [ "<all_urls>" ]
         }
     ],
