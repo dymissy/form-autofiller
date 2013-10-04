@@ -43,6 +43,8 @@ AutoFiller.prototype = (function(){
                 field.value = _getValueByType( type, field.id, field.name );
             }
         }
+
+        console.log(field);
     },
 
     /**
