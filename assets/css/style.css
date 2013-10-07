@@ -1,3 +1,48 @@
+/* GENERAL */
 body {
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
+
+h1 {
+    font-weight: normal;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-weight: normal;
+    font-size: 17px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-weight: normal;
+    font-size: 15px;
+}
+
+legend {
+    font-size: 16px;
+    border: 0;
+}
+
+
+
+/* HEADER */
+#header {}
+#header img { float: left; margin-right: 20px; width: 30px; position: relative; top: 3px; }
+#header h4 { float: left; }
+#author { float: right; }
+
+/* WRAPPER */
+#wrapper { margin-top: 10px; }
+#wrapper .sep { margin: 25px 0; clear: both; }
+#wrapper .dep { display: none }
+
+.help-block {
+    font-size: 11px;
+    color: #aaa;
+}
+
+

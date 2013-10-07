@@ -8,16 +8,122 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <script type="text/javascript" src="assets/js/jquery.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/autoFiller.js"></script>
+    <script type="text/javascript" src="assets/js/options.js"></script>
 </head>
 <body>
     <div class="container">
-        <div id="header">
+        <div id="header" class="clearfix">
             <img src="assets/img/icon-48.png" alt="Form Autofiller" />
             <h4>Form Autofiller</h4>
+
+            <a href="http://simonedamico.com" target="_blank" id="author">Simone D'Amico</a>
         </div>
 
+        <div id="wrapper" class="clearfix">
+            <div class="tabbable tabs-left">
+                <ul class="nav nav-tabs">
+                    <!--
+                     * - password
+                     * - date
+                     * - month
+                     * - email
+                     * - checkbox
+                     * - radio
+                     * - textarea
+                     * - select
+                     * - number
+                     * - tel
+                     * - url
+                     * - range
+                     * - text
+                    -->
+
+                    <li class="active"><a href="#general" data-toggle="tab">General</a></li>
+                    <li><a href="#email" data-toggle="tab">Email</a></li>
+                    <li><a href="#username" data-toggle="tab">Username</a></li>
+                    <li><a href="#password" data-toggle="tab">Password</a></li>
+                    <li><a href="#name" data-toggle="tab">Name</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="general">
+                        <p>I'm in Section 1.</p>
+                    </div>
+                    <div class="tab-pane" id="email">
+                        <h2>Email Settings</h2>
+
+                        <fieldset>
+                            <h3>Select how to fill email fields</h3>
+                            <label class="radio">
+                                <input type="radio" name="email-type" id="" value="random">
+                                Random email address
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="email-type" id="" value="custom">
+                                Custom email address
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="email-type" id="" value="custom-host" checked>
+                                Custom host name
+                            </label>
+
+                            <div class="sep"></div>
+
+                            <div class="dep">
+                                <label>Custom email address</label>
+                                <input type="email" placeholder="Email address" data-dep="email-type" data-value="custom">
+                                <span class="help-block">Type the email adress to use in email fields (eg. john.doe@gmail.com)</span>
+                            </div>
+
+                            <div class="dep">
+                                <label>Custom host name</label>
+                                <input type="text" placeholder="Host name" data-dep="email-type" data-value="custom-host">
+                                <span class="help-block">Type the host name to use in email fields (eg. gmail.com)</span>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="tab-pane" id="username">
+                        <h2>Username Settings</h2>
+
+                        <fieldset>
+                            <p>
+                                Form Autofiller looks for <em>username</em> fields type within the <code>name</code> and the <code>id</code>
+                                attribute. Basically it looks for the following names/ids:
+                                <code>username, uname, user, user_name</code> but you can add your own below:
+                            </p>
+                            <input type="text" placeholder="Fields name" name="username-fields">
+                            <span class="help-block">Type the fields name comma separated (eg. un, user, username)</span>
+
+                            <div class="sep"></div>
+
+                            <h3>Select how to fill username fields</h3>
 
 
+
+
+
+
+                            <label class="radio">
+                                <input type="radio" name="username-type" id="" value="random">
+                                Random username
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="username-type" id="" value="custom" checked>
+                                Custom username
+                            </label>
+
+                            <div class="sep"></div>
+
+                            <div class="dep">
+                                <label>Custom username</label>
+                                <input type="text" placeholder="Username" data-dep="username-type" data-value="custom">
+                                <span class="help-block">Type the username to use in username fields (eg. john.doe)</span>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
