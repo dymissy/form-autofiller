@@ -98,11 +98,6 @@
 
                             <h3>Select how to fill username fields</h3>
 
-
-
-
-
-
                             <label class="radio">
                                 <input type="radio" name="username-type" id="" value="random">
                                 Random username
@@ -118,6 +113,31 @@
                                 <label>Custom username</label>
                                 <input type="text" placeholder="Username" data-dep="username-type" data-value="custom">
                                 <span class="help-block">Type the username to use in username fields (eg. john.doe)</span>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="tab-pane" id="password">
+                        <h2>Password Settings</h2>
+
+                        <fieldset>
+                            <h3>Select how to fill username fields</h3>
+
+                            <label class="radio">
+                                <input type="radio" name="password-type" id="" value="random" checked>
+                                Random 8 characters password
+
+                                <span class="help-block">The password will be logged in console</span>
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="password-type" id="" value="custom">
+                                Custom password
+                            </label>
+
+                            <div class="sep"></div>
+
+                            <div class="dep">
+                                <input type="text" placeholder="Password" data-dep="password-type" data-value="custom">
+                                <span class="help-block">Type the password to use for password fields</span>
                             </div>
                         </fieldset>
                     </div>
