@@ -1,18 +1,24 @@
 AutoFillerOptions = function(){};
 AutoFillerOptions.prototype = (function(){
 
-    /*
-    var _deps = function() {
-        $('.dep').each(function(){
-            var dep = $(this).data('dep'),
-                value = $(this).data('value');
-
-            if( $('input[name=' + dep + ']').val() == value ) {
-                $(this).show();
-            }
-        });
+    var options = {
+        'firstname-fields': '',
+        'lastname-fields': '',
+        'username-fields': '',
+        'email-custom': '',
+        'email-custom-host': '',
+        'email-type': 'random',
+        'name-firstname-custom': '',
+        'name-gender': 'random',
+        'name-lastname-custom': '',
+        'name-type': 'random',
+        'password-custom': '',
+        'password-type': 'random',
+        'save': 'Save settings',
+        'username-custom': '',
+        'username-type': 'random'
     };
-    */
+
     var _events = function() {
             //dependencies handler
             $('[data-dep]').each(function(){
@@ -30,6 +36,15 @@ AutoFillerOptions.prototype = (function(){
                     _dependencies( t, dep_value, input_val );
                 }).change();
             });
+
+            //save options
+            $('[name=save]').on('click', function(e){
+                e.preventDefault();
+                _saveOptions();
+            });
+
+            //merge options
+            options = _getOptions();
         },
 
         /**
@@ -41,11 +56,57 @@ AutoFillerOptions.prototype = (function(){
             } else {
                 dep.parents('.dep').hide();
             }
-        };
+        },
+
+        /**
+         * Save options in local storage
+         */
+        _saveOptions = function() {
+            var options = {};
+            $('input, select, textarea').each(function(){
+                var name = this.name,
+                    value = this.value;
+
+                if( $(this).is(':radio') ) {
+                    options[name] = $('[name='+name+']:checked').val();
+                } else {
+                    options[name] = value;
+                }
+            });
+
+            localStorage['options'] = JSON.stringify(options);
+        },
+
+        _getOptions = function() {
+            var localOptions = localStorage['options'];
+
+            if( localOptions ) {
+                return JSON.parse(localOptions);
+            } else {
+                return options;
+            }
+        },
+
+        _populateOptions = function() {
+            $('input, select, textarea').each(function(){
+                var name = this.name;
+
+                if( $(this).is(':radio')  ) {
+                    if( this.value == options[name] ) {
+                        $(this).prop('checked', true);
+                    }
+                } else {
+                    this.value = options[name];
+                }
+
+                $(this).change();
+            })
+        }
 
     return {
         init : function() {
             _events();
+            _populateOptions();
         }
     }
 }());

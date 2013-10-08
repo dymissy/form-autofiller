@@ -55,7 +55,7 @@
                         <fieldset>
                             <h3>Select how to fill email fields</h3>
                             <label class="radio">
-                                <input type="radio" name="email-type" id="" value="random">
+                                <input type="radio" name="email-type" id="" value="random" checked>
                                 Random email address
                             </label>
                             <label class="radio">
@@ -63,7 +63,7 @@
                                 Custom email address
                             </label>
                             <label class="radio">
-                                <input type="radio" name="email-type" id="" value="custom-host" checked>
+                                <input type="radio" name="email-type" id="" value="custom-host">
                                 Custom host name
                             </label>
 
@@ -71,13 +71,13 @@
 
                             <div class="dep">
                                 <label>Custom email address</label>
-                                <input type="email" placeholder="Email address" data-dep="email-type" data-value="custom">
+                                <input type="email" placeholder="Email address" name="email-custom" data-dep="email-type" data-value="custom">
                                 <span class="help-block">Type the email adress to use in email fields (eg. john.doe@gmail.com)</span>
                             </div>
 
                             <div class="dep">
                                 <label>Custom host name</label>
-                                <input type="text" placeholder="Host name" data-dep="email-type" data-value="custom-host">
+                                <input type="text" placeholder="Host name" name="email-custom-host" data-dep="email-type" data-value="custom-host">
                                 <span class="help-block">Type the host name to use in email fields (eg. gmail.com)</span>
                             </div>
                         </fieldset>
@@ -111,7 +111,7 @@
 
                             <div class="dep">
                                 <label>Custom username</label>
-                                <input type="text" placeholder="Username" data-dep="username-type" data-value="custom">
+                                <input type="text" placeholder="Username" name="username-custom" data-dep="username-type" data-value="custom">
                                 <span class="help-block">Type the username to use in username fields (eg. john.doe)</span>
                             </div>
                         </fieldset>
@@ -136,13 +136,78 @@
                             <div class="sep"></div>
 
                             <div class="dep">
-                                <input type="text" placeholder="Password" data-dep="password-type" data-value="custom">
+                                <input type="text" placeholder="Password" name="password-custom" data-dep="password-type" data-value="custom">
                                 <span class="help-block">Type the password to use for password fields</span>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="tab-pane" id="name">
+                        <h2>Name Settings</h2>
+
+                        <fieldset>
+                            <p>
+                                Form Autofiller looks for <em>fist name</em> fields type within the <code>name</code> and the <code>id</code>
+                                attribute. Basically it looks for the following names/ids:
+                                <code>firstname, first_name, first-name, name</code> but you can add your own below:
+                            </p>
+                            <input type="text" placeholder="Fields name" name="firstname-fields">
+                            <span class="help-block">Type the fields name comma separated (eg. fname, first)</span>
+
+                            <div class="sep"></div>
+
+                            <p>
+                                Form Autofiller looks for <em>last name</em> fields type within the <code>name</code> and the <code>id</code>
+                                attribute. Basically it looks for the following names/ids:
+                                <code>last, last_name, last-name, surname</code> but you can add your own below:
+                            </p>
+                            <input type="text" placeholder="Fields name" name="lastname-fields">
+                            <span class="help-block">Type the fields name comma separated (eg. lname, last)</span>
+
+                            <div class="sep"></div>
+
+                            <h3>Select how to fill First Name and Last Name fields</h3>
+
+                            <label class="radio">
+                                <input type="radio" name="name-type" id="" value="random" checked>
+                                Random Name
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="name-type" id="" value="custom">
+                                Custom Name
+                            </label>
+
+                            <div class="sep"></div>
+
+                            <div class="dep">
+                                <h3>Select the gender for generate the  name</h3>
+                                <label class="radio">
+                                    <input type="radio" name="name-gender" id="" value="random" data-dep="name-type" data-value="random" checked>
+                                    Random
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="name-gender" id="" value="male" data-dep="name-type" data-value="random">
+                                    Male
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="name-gender" id="" value="female" data-dep="name-type" data-value="random">
+                                    Female
+                                </label>
+
+                            </div>
+                            <div class="dep">
+                                <input type="text" placeholder="First Name" name="name-firstname-custom" data-dep="name-type" data-value="custom">
+                                <span class="help-block">Type the name to use for first name fields</span>
+                            </div>
+                            <div class="dep">
+                                <input type="text" placeholder="Last Name" name="name-lastname-custom" data-dep="name-type" data-value="custom">
+                                <span class="help-block">Type the surname to use for last name fields</span>
                             </div>
                         </fieldset>
                     </div>
                 </div>
             </div>
+
+            <input type="submit" name="save" class="btn-info btn" value="Save Settings" />
         </div>
     </div>
 </body>
