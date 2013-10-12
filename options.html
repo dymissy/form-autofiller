@@ -21,6 +21,11 @@
         </div>
 
         <div id="wrapper" class="clearfix">
+            <div id="message" class="alert alert-success" style="display:none">
+                <button type="button" class="close">×</button>
+                Options succesfully stored!
+            </div>
+
             <div class="tabbable tabs-left">
                 <ul class="nav nav-tabs">
                     <!--
@@ -55,15 +60,15 @@
                         <fieldset>
                             <h3>Select how to fill email fields</h3>
                             <label class="radio">
-                                <input type="radio" name="email-type" id="" value="random" checked>
+                                <input type="radio" name="email_type" value="random" checked>
                                 Random email address
                             </label>
                             <label class="radio">
-                                <input type="radio" name="email-type" id="" value="custom">
+                                <input type="radio" name="email_type" value="custom">
                                 Custom email address
                             </label>
                             <label class="radio">
-                                <input type="radio" name="email-type" id="" value="custom-host">
+                                <input type="radio" name="email_type" value="custom_host">
                                 Custom host name
                             </label>
 
@@ -71,13 +76,13 @@
 
                             <div class="dep">
                                 <label>Custom email address</label>
-                                <input type="email" placeholder="Email address" name="email-custom" data-dep="email-type" data-value="custom">
+                                <input type="email" placeholder="Email address" name="email_custom" data-dep="email_type" data-value="custom">
                                 <span class="help-block">Type the email adress to use in email fields (eg. john.doe@gmail.com)</span>
                             </div>
 
                             <div class="dep">
                                 <label>Custom host name</label>
-                                <input type="text" placeholder="Host name" name="email-custom-host" data-dep="email-type" data-value="custom-host">
+                                <input type="text" placeholder="Host name" name="email_custom_host" data-dep="email_type" data-value="custom-host">
                                 <span class="help-block">Type the host name to use in email fields (eg. gmail.com)</span>
                             </div>
                         </fieldset>
@@ -91,7 +96,7 @@
                                 attribute. Basically it looks for the following names/ids:
                                 <code>username, uname, user, user_name</code> but you can add your own below:
                             </p>
-                            <input type="text" placeholder="Fields name" name="username-fields">
+                            <input type="text" placeholder="Fields name" name="username_fields">
                             <span class="help-block">Type the fields name comma separated (eg. un, user, username)</span>
 
                             <div class="sep"></div>
@@ -99,11 +104,11 @@
                             <h3>Select how to fill username fields</h3>
 
                             <label class="radio">
-                                <input type="radio" name="username-type" id="" value="random">
+                                <input type="radio" name="username_type" value="random">
                                 Random username
                             </label>
                             <label class="radio">
-                                <input type="radio" name="username-type" id="" value="custom" checked>
+                                <input type="radio" name="username_type" value="custom" checked>
                                 Custom username
                             </label>
 
@@ -111,7 +116,7 @@
 
                             <div class="dep">
                                 <label>Custom username</label>
-                                <input type="text" placeholder="Username" name="username-custom" data-dep="username-type" data-value="custom">
+                                <input type="text" placeholder="Username" name="username_custom" data-dep="username_type" data-value="custom">
                                 <span class="help-block">Type the username to use in username fields (eg. john.doe)</span>
                             </div>
                         </fieldset>
@@ -123,20 +128,20 @@
                             <h3>Select how to fill username fields</h3>
 
                             <label class="radio">
-                                <input type="radio" name="password-type" id="" value="random" checked>
+                                <input type="radio" name="password_type" value="random" checked>
                                 Random 8 characters password
 
                                 <span class="help-block">The password will be logged in console</span>
                             </label>
                             <label class="radio">
-                                <input type="radio" name="password-type" id="" value="custom">
+                                <input type="radio" name="password_type" value="custom">
                                 Custom password
                             </label>
 
                             <div class="sep"></div>
 
                             <div class="dep">
-                                <input type="text" placeholder="Password" name="password-custom" data-dep="password-type" data-value="custom">
+                                <input type="text" placeholder="Password" name="password_custom" data-dep="password_type" data-value="custom">
                                 <span class="help-block">Type the password to use for password fields</span>
                             </div>
                         </fieldset>
@@ -150,7 +155,7 @@
                                 attribute. Basically it looks for the following names/ids:
                                 <code>firstname, first_name, first-name, name</code> but you can add your own below:
                             </p>
-                            <input type="text" placeholder="Fields name" name="firstname-fields">
+                            <input type="text" placeholder="Fields name" name="firstname_fields">
                             <span class="help-block">Type the fields name comma separated (eg. fname, first)</span>
 
                             <div class="sep"></div>
@@ -160,7 +165,7 @@
                                 attribute. Basically it looks for the following names/ids:
                                 <code>last, last_name, last-name, surname</code> but you can add your own below:
                             </p>
-                            <input type="text" placeholder="Fields name" name="lastname-fields">
+                            <input type="text" placeholder="Fields name" name="lastname_fields">
                             <span class="help-block">Type the fields name comma separated (eg. lname, last)</span>
 
                             <div class="sep"></div>
@@ -168,11 +173,11 @@
                             <h3>Select how to fill First Name and Last Name fields</h3>
 
                             <label class="radio">
-                                <input type="radio" name="name-type" id="" value="random" checked>
+                                <input type="radio" name="name_type" value="random" checked>
                                 Random Name
                             </label>
                             <label class="radio">
-                                <input type="radio" name="name-type" id="" value="custom">
+                                <input type="radio" name="name_type" value="custom">
                                 Custom Name
                             </label>
 
@@ -181,25 +186,25 @@
                             <div class="dep">
                                 <h3>Select the gender for generate the  name</h3>
                                 <label class="radio">
-                                    <input type="radio" name="name-gender" id="" value="random" data-dep="name-type" data-value="random" checked>
+                                    <input type="radio" name="name_gender" value="random" data-dep="name_type" data-value="random" checked>
                                     Random
                                 </label>
                                 <label class="radio">
-                                    <input type="radio" name="name-gender" id="" value="male" data-dep="name-type" data-value="random">
+                                    <input type="radio" name="name_gender" value="male" data-dep="name_type" data-value="random">
                                     Male
                                 </label>
                                 <label class="radio">
-                                    <input type="radio" name="name-gender" id="" value="female" data-dep="name-type" data-value="random">
+                                    <input type="radio" name="name_gender" value="female" data-dep="name_type" data-value="random">
                                     Female
                                 </label>
 
                             </div>
                             <div class="dep">
-                                <input type="text" placeholder="First Name" name="name-firstname-custom" data-dep="name-type" data-value="custom">
+                                <input type="text" placeholder="First Name" name="name_firstname_custom" data-dep="name_type" data-value="custom">
                                 <span class="help-block">Type the name to use for first name fields</span>
                             </div>
                             <div class="dep">
-                                <input type="text" placeholder="Last Name" name="name-lastname-custom" data-dep="name-type" data-value="custom">
+                                <input type="text" placeholder="Last Name" name="name_lastname_custom" data-dep="name_type" data-value="custom">
                                 <span class="help-block">Type the surname to use for last name fields</span>
                             </div>
                         </fieldset>

@@ -1,25 +1,10 @@
 AutoFillerOptions = function(){};
 AutoFillerOptions.prototype = (function(){
 
-    var options = {
-        'firstname-fields': '',
-        'lastname-fields': '',
-        'username-fields': '',
-        'email-custom': '',
-        'email-custom-host': '',
-        'email-type': 'random',
-        'name-firstname-custom': '',
-        'name-gender': 'random',
-        'name-lastname-custom': '',
-        'name-type': 'random',
-        'password-custom': '',
-        'password-type': 'random',
-        'save': 'Save settings',
-        'username-custom': '',
-        'username-type': 'random'
-    };
+    var instance,
+        options,
 
-    var _events = function() {
+        _events = function() {
             //dependencies handler
             $('[data-dep]').each(function(){
                 var t = $(this),
@@ -43,6 +28,11 @@ AutoFillerOptions.prototype = (function(){
                 _saveOptions();
             });
 
+            //close message
+            $('#message').find('button').click(function(){
+                $('#message').hide();
+            });
+
             //merge options
             options = _getOptions();
         },
@@ -58,9 +48,6 @@ AutoFillerOptions.prototype = (function(){
             }
         },
 
-        /**
-         * Save options in local storage
-         */
         _saveOptions = function() {
             var options = {};
             $('input, select, textarea').each(function(){
@@ -74,17 +61,17 @@ AutoFillerOptions.prototype = (function(){
                 }
             });
 
-            localStorage['options'] = JSON.stringify(options);
+            if( instance.saveOptions( options ) ) {
+                _displayMessage();
+            }
+        },
+
+        _displayMessage = function() {
+            $('#message').show()
         },
 
         _getOptions = function() {
-            var localOptions = localStorage['options'];
-
-            if( localOptions ) {
-                return JSON.parse(localOptions);
-            } else {
-                return options;
-            }
+            return instance.getOptions();
         },
 
         _populateOptions = function() {
@@ -100,11 +87,12 @@ AutoFillerOptions.prototype = (function(){
                 }
 
                 $(this).change();
-            })
-        }
+            });
+        };
 
     return {
-        init : function() {
+        init : function( inst ) {
+            instance = inst;
             _events();
             _populateOptions();
         }
@@ -113,5 +101,5 @@ AutoFillerOptions.prototype = (function(){
 
 $(function(){
     var autoFillerOptions = new AutoFillerOptions();
-    autoFillerOptions.init();
+    autoFillerOptions.init( autoFiller );
 });
