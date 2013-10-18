@@ -62,7 +62,7 @@ AutoFiller.prototype = (function(){
      */
     _fillField = function( field ) {
         var type = field.type.toLocaleLowerCase();
-        if( type != 'submit' && !field.disabled && !field.readOnly ) {
+        if( 'submit' != type && !field.disabled && !field.readOnly ) {
             if( 'checkbox' == type || 'radio' == type ) {
                 //TODO: add checked attribute
                 //console.log(field);
