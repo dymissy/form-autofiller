@@ -56,6 +56,7 @@ AutoFiller.prototype = (function(){
      * - radio
      * - textarea
      * - url
+     * - search
      * - text => Check the id and/or the name of the field
      *           in order to fill with appropriate value
      */
@@ -108,7 +109,7 @@ AutoFiller.prototype = (function(){
             value = today.getFullYear() + '-W' + Math.floor(Math.random()*52);
         } else if( 'time' == type ) {
             value = today.getHours() + ':' + today.getMinutes();
-        } else if( 'number' || 'range' == type ) {
+        } else if( 'number' == type || 'range' == type ) {
             value = Math.floor(Math.random()*100);
         } else if( 'tel' == type ) {
             value = '(899) 205-9881';
