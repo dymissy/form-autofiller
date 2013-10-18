@@ -62,7 +62,7 @@ AutoFiller.prototype = (function(){
     _fillField = function( field ) {
         var type = field.type.toLocaleLowerCase();
         if( type != 'submit' && !field.disabled && !field.readOnly ) {
-            if( type == 'checkbox' || type == 'radio' ) {
+            if( 'checkbox' == type || 'radio' == type ) {
                 //TODO: add checked attribute
                 //console.log(field);
             } else if( type.indexOf('select') > -1 ) {
@@ -97,20 +97,20 @@ AutoFiller.prototype = (function(){
             }
 
             console.log( "AutoFiller password: " + value );
-        } else if( type == 'date' ) {
+        } else if( 'date' == type ) {
             value = today.getFullYear() + '-' + ( today.getMonth() + 1 ) + '-' + today.getDate();
-        } else if( type == 'datetime-local' ) {
+        } else if( 'datetime-local' == type ) {
             value = today.getFullYear() + '-' + ( today.getMonth() + 1 ) + '-' + today.getDate() +
                     'T' + today.getHours() + ':' + today.getMinutes();
-        } else if( type == 'month' ) {
+        } else if( 'month' == type ) {
             value = today.getFullYear() + '-' + ( today.getMonth() + 1 );
-        } else if( type == 'week' ) {
+        } else if( 'week' == type ) {
             value = today.getFullYear() + '-W' + Math.floor(Math.random()*52);
-        } else if( type == 'time' ) {
+        } else if( 'time' == type ) {
             value = today.getHours() + ':' + today.getMinutes();
-        } else if( type == 'number' || type == 'range' ) {
+        } else if( 'number' || 'range' == type ) {
             value = Math.floor(Math.random()*100);
-        } else if( type == 'tel' ) {
+        } else if( 'tel' == type ) {
             value = '(899) 205-9881';
         }
 
