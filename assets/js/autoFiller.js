@@ -50,6 +50,7 @@ AutoFiller.prototype = (function(){
      * - number -
      * - tel -
      * - range -
+     * - color -
      * - password
      * - email
      * - checkbox
@@ -113,6 +114,8 @@ AutoFiller.prototype = (function(){
             value = Math.floor(Math.random()*100);
         } else if( 'tel' == type ) {
             value = '(899) 205-9881';
+        } else if( 'color' == type ) {
+            value = '#ff0000';
         }
 
         return value;
