@@ -58,8 +58,8 @@ AutoFiller.prototype = (function(){
      * - url -
      * - search -
      * - textarea -
-     * - checkbox
-     * - radio
+     * - checkbox -
+     * - radio -
      * - password
      * - email
      * - text => Check the id and/or the name of the field
@@ -70,6 +70,7 @@ AutoFiller.prototype = (function(){
         if( 'submit' != type && !field.disabled && !field.readOnly ) {
             if( 'checkbox' == type || 'radio' == type ) {
                 //TODO: add checked attribute
+                field.checked = true;
                 //console.log(field);
             } else if( type.indexOf('select') > -1 ) {
                 var i = Math.floor(Math.random()* field.options.length );
