@@ -226,3 +226,8 @@ AutoFiller.prototype = (function(){
 
 var autoFiller = new AutoFiller();
 autoFiller.init();
+
+
+chrome.runtime.sendMessage({method: "getStorage"}, function(response) {
+    console.log( response.farewell );
+});
