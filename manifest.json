@@ -20,5 +20,8 @@
             "background.js"
         ]
     },
+    "web_accessible_resources": [
+        "assets/json/dummy.json"
+    ],
     "options_page": "options.html"
 }

@@ -19,11 +19,15 @@ AutoFiller.prototype = (function(){
             username_custom: '',
             username_type: 'random'
         },
-        options = {};
+        options = {},
+        dummy = {};
 
     var _init = function() {
         //init options
         options = _getOptions();
+
+        //init dummy data
+        dummy = _getDummyData();
 
         //init fields
         fields = document.querySelectorAll('input, textarea, select');
@@ -51,13 +55,13 @@ AutoFiller.prototype = (function(){
      * - tel -
      * - range -
      * - color -
-     * - password
-     * - email
+     * - url -
+     * - search -
+     * - textarea -
      * - checkbox
      * - radio
-     * - textarea
-     * - url
-     * - search
+     * - password
+     * - email
      * - text => Check the id and/or the name of the field
      *           in order to fill with appropriate value
      */
@@ -116,6 +120,12 @@ AutoFiller.prototype = (function(){
             value = '(899) 205-9881';
         } else if( 'color' == type ) {
             value = '#ff0000';
+        } else if( 'search' == type ) {
+            value = dummy.lorem.substring(0, 26);
+        } else if( 'url' == type ) {
+            value = 'http://google.com';
+        } else if( 'textarea' == type ) {
+            value = dummy.lorem;
         }
 
         return value;
@@ -153,6 +163,22 @@ AutoFiller.prototype = (function(){
         return randomString;
     },
 
+    /**
+     * Retrieve dummy data
+     *
+     * @private
+     */
+    _getDummyData = function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", chrome.extension.getURL('/assets/json/dummy.json'), false);
+        xhr.send();
+
+        if( xhr.response ) {
+            return JSON.parse(xhr.response);
+        } else {
+            return {};
+        }
+    },
 
     /**
      * Save options in local storage
